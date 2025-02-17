@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div>
+            <h1>Bookshelf App</h1>
+        </div>
+    </nav>
+
+    <main>
+        <div class="form">
+            <form class="form-action" action="#" id="form">
+                <div class="form-input">
+                    <label for="nama-buku">Nama Buku</label>
+                    <input required type="text" name="nama-buku" id="name" placeholder="kontol">
+                </div>
+
+                <div class="form-button">
+                    <input id="submit-button-negative" type="submit" value="Belum Dibaca" name="Submit" class="form-button-child btn-red">
+                    <input id="submit-button-positive" type="submit" value="Selesai Dibaca" name="Submit" class="form-button-child btn-blue">
+                </div>
+            </form>
+        </div>
+
+        <div class="bookshelf-container">
+            <div class="bookshelf">
+                <h2>Belum Dibaca</h2>
+                <div id="uncompleted-books-list">
+                    
+                </div>
+            </div>
+            <div class="bookshelf sudah-dibaca">
+                <h2>Sudah Dibaca</h2>
+                <div id="completed-books-list">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
