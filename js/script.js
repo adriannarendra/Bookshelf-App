@@ -14,10 +14,9 @@ function checkStorage() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (checkStorage) {
-        const storedBooks = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        console.log(storedBooks);
-        books = storedBooks;
+    if (checkStorage()) {
+        const storedBooks = localStorage.getItem(STORAGE_KEY);
+        books = storedBooks ? JSON.parse(storedBooks) : [];
 
         dispatchEvent(new Event(RENDER_BOOKS));    
     }
@@ -65,7 +64,7 @@ function addBook(isCompleted) {
     const bookObject = makeBookObject(name, generatedId, isCompleted);
     books.push(bookObject);
 
-    if (checkStorage) {
+    if (checkStorage()) {
         const booksString = JSON.stringify(books);
         localStorage.setItem(STORAGE_KEY, booksString);
     }
@@ -106,7 +105,7 @@ function addBookToDoneReading(id) {
 
     bookItemId.isCompleted = true;
 
-    if (checkStorage) {
+    if (checkStorage()) {
         const booksString = JSON.stringify(books);
         localStorage.setItem(STORAGE_KEY, booksString);
     }
@@ -120,7 +119,7 @@ function addBookToNotRead(id) {
 
     bookItemId.isCompleted = false;
 
-    if (checkStorage) {
+    if (checkStorage()) {
         const booksString = JSON.stringify(books);
         localStorage.setItem(STORAGE_KEY, booksString);
     }
@@ -134,7 +133,7 @@ function deleteBook(id) {
     
     books.splice(bookItemIndex, 1);
 
-    if (checkStorage) {
+    if (checkStorage()) {
         const booksString = JSON.stringify(books);
         localStorage.setItem(STORAGE_KEY, booksString);
     }
